@@ -86,3 +86,120 @@ button:hover {
 .hidden {
     display: none;
 }
+/* Style de chaque élément de suggestion */
+.suggestion-item {
+    /* Marge intérieure pour rendre l'élément plus facile à lire et cliquer */
+    padding: 10px 15px; 
+    
+    /* Le curseur devient une main pour indiquer qu'il est cliquable */
+    cursor: pointer;
+    
+    /* Assure que le texte est aligné à gauche */
+    text-align: left;
+    
+    /* Retire la décoration par défaut des liens si vous utilisez des <a> */
+    text-decoration: none;
+    
+    /* S'assurer que le texte est lisible (si le conteneur a un fond blanc) */
+    color: #333; 
+    
+    /* Ajout d'une transition douce pour l'effet de survol */
+    transition: background-color 0.2s ease;
+}
+
+/* Effet au survol (quand la souris passe dessus) */
+.suggestion-item:hover {
+    /* Change la couleur de fond pour indiquer que l'élément est actif */
+    background-color: #f0f0f0; 
+}
+
+/* Style de la boîte entière des suggestions pour la délimiter */
+#suggestionsContainer {
+    /* Bordure légère pour encadrer la liste */
+    border: 1px solid #ddd;
+    
+    /* Fait en sorte que le coin en bas à gauche et à droite soit arrondi */
+    border-radius: 0 0 5px 5px; 
+    
+    /* Assure que le fond est blanc pour la lisibilité */
+    background-color: white; 
+    
+    /* S'assure que la liste se superpose à d'autres éléments */
+    z-index: 10; 
+    
+    /* Cache les parties des suggestions qui débordent de la boîte */
+    overflow: hidden; 
+}
+/* Positionnement pour que les suggestions restent en dessous de la barre de recherche */
+.search-container {
+    position: relative;
+    /* Adaptez la largeur à votre input */
+    width: 100%; 
+}
+
+#suggestionsContainer {
+    position: absolute;
+    /* Assure que la boîte de suggestions couvre toute la largeur de l'input */
+    width: 100%; 
+    /* Ajoute une ombre légère */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    /* Définit la hauteur maximale pour le défilement */
+    max-height: 250px; 
+    overflow-y: auto;
+}
+/* Style du conteneur du logo pour le centrer */
+.logo-header {
+    text-align: center; /* Centre le contenu (l'image) */
+    margin-bottom: 30px; /* Ajoute de l'espace sous le logo */
+}
+
+/* Style de l'image du logo elle-même */
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 5s linear infinite;
+}
+
+/* Le logo pulse (grandit/rétrécit) */
+.association-logo {
+    display: block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Rotation */
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pulsation */
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(0.5); }
+    100% { transform: scale(1); }
+}
+
+/* Style général des deux GIF */
+.dance-gif {
+    position: fixed;
+    top: 50%;
+    width: 120px;      /* Taille modifiable */
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+/* Celui de gauche */
+.dance-left {
+    left: 5%;
+    height: 25%;
+    width: 25%;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+/* Celui de droite */
+.dance-right {
+    right: 5%;
+    height: 25%;
+    width: 25%;
+}

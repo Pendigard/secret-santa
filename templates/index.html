@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Santa 🎅</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
 <body>
     <div class="container">
+    <header class="logo-header">
+        <div class="logo-wrapper">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" class="association-logo" />
+</div>
+       
+    </header>
         <h1>Tirage au Sort Secret Santa</h1>
         
         <p>Entrez votre prénom et choisissez le participant pour qui vous tirez au sort.</p>
         
         <form id="secretSantaForm">
-            <div class="input-group">
-                <label for="monPrenom">Mon Prénom :</label>
-                <input type="text" id="monPrenom" required placeholder="Ex: Alex">
-            </div>
+           <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Rechercher un joueur..." onkeyup="suggererJoueurs()">
+    <div id="suggestionsContainer"></div>
+</div>
 
             
             
@@ -24,7 +31,12 @@
 
         <p id="messageResultat" class="hidden"></p>
     </div>
+    
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
+<img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-left">
+<img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-right">
+
 </html>
