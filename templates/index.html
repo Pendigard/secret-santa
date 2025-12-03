@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa 🎅</title>
+    <link rel="stylesheet" href="../static/css/style.css"> </head>
+<body>
+    <div class="container">
+        <h1>Tirage au Sort Secret Santa</h1>
+        
+        <p>Entrez votre prénom et choisissez le participant pour qui vous tirez au sort.</p>
+        
+        <form id="secretSantaForm">
+            <div class="input-group">
+                <label for="monPrenom">Mon Prénom :</label>
+                <input type="text" id="monPrenom" required placeholder="Ex: Alex">
+            </div>
+
+            
+            
+            <button type="submit" id="tirerAuSortBtn">Voir mon affectation</button>
+        </form>
+
+        <p id="messageResultat" class="hidden"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

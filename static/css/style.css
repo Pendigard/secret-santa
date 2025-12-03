@@ -1,0 +1,88 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    border: 3px solid #e74c3c; /* Rouge festif */
+}
+
+h1 {
+    color: #c0392b; /* Rouge plus profond */
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #27ae60; /* Vert festif */
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+button {
+    background-color: #2ecc71; /* Vert */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #27ad60; /* Vert foncé au survol */
+}
+
+/* Style pour le message de résultat qui apparaît après le tirage */
+#messageResultat {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9c4;
+    color: #8a6d3b;
+    border: 1px solid #faebcc;
+    font-weight: bold;
+}
+
+/* Classe pour cacher le message de résultat initialement */
+.hidden {
+    display: none;
+}
