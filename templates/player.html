@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa 🎅</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+    <header class="logo-header">
+        <div class="logo-wrapper">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" class="association-logo" />
+</div>
+         
+     </header>
+          <h1>Bonjour, {{ player.username }} !</h1>
+        <p>Tu dois offrir un cadeau à :</p>
+        <div class="assigned-player-card">
+            <h2>{{ target.username }}</h2>
+        </div>
+        <p>Joyeux Noël ! 🎄</p>
+            </div>
+    
+</body>
+<img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-left">
+<img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-right">
+</html>

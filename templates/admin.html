@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa 🎅</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="admin-container">
+        <h1>Admin Secret Santa</h1>
+
+        <!-- Messages flash -->
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <div class="flash-message">{{ msg }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <!-- Formulaire d'ajout de joueur -->
+        <form action="/add" method="POST">
+            <label for="username">Prénom / Pseudo du joueur :</label>
+            <input type="text" id="username" name="username" placeholder="Ex : Alice" required>
+            
+            <button type="submit">Ajouter le joueur</button>
+        </form>
+
+        <form action="/assign" method="POST" class="assign-form">
+            <button type="submit" class="assign-button">Effectuer le tirage au sort</button>
+        </form>
+
+        <!-- Liste des joueurs -->
+        <div class="players-section">
+            <h2>Liste des joueurs</h2>
+
+            {% if players %}
+                <div class="players-grid">
+                    {% for player in players %}
+                        <div class="player-card">
+                            <div class="player-name">
+                                {{ player.username }}
+                            </div>
+                            <a href="/delete/{{ player.id }}">
+                                <button type="button" class="delete-button">Supprimer</button>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Aucun joueur pour le moment.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+<img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-left">
+<img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-right">
+</html>

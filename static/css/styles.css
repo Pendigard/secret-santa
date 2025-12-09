@@ -65,6 +65,7 @@ button {
     font-weight: bold;
     transition: background-color 0.3s ease;
     width: 100%;
+    margin-top: 3%;
 }
 
 button:hover {
@@ -202,4 +203,82 @@ button:hover {
     right: 5%;
     height: 25%;
     width: 25%;
+}
+
+/* Messages flash dans le container admin */
+.flash-messages {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.flash-message {
+    background-color: #dff0d8;
+    border: 1px solid #c3e6cb;
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+/* Grille des joueurs : 5 par ligne */
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Carte individuelle d'un joueur */
+.player-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fafafa;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.player-name {
+    font-weight: bold;
+    word-break: break-word;
+}
+
+/* Bouton supprimer (reprend le style de button mais adapté) */
+.delete-button {
+    background-color: #e74c3c;
+    width: auto;                /* on override le width: 100% global */
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.texte-couleur span {
+    display: inline-block;
+    animation: changeColor 1.5s linear infinite;
+}
+
+#texte-arcenciel {
+    position: fixed;          /* Pour coller en bas à droite */
+    bottom: 20px;             /* marge depuis le bas */
+    right: 20px;              /* marge depuis la droite */
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 2em;         /* taille ajustable */
+    z-index: 9999;            /* Pour qu'il passe au-dessus des autres éléments */
+    pointer-events: none;     /* (optionnel) pour ne pas bloquer les clics */
+}
+
+/* Animation de changement de couleur */
+@keyframes changeColor {
+    0%   { color: #e74c3c; }   /* rouge */
+    25%  { color: #f1c40f; }   /* jaune */
+    50%  { color: #2ecc71; }   /* vert */
+    75%  { color: #3498db; }   /* bleu */
+    100% { color: #e73cbf; }   /* rouge à nouveau */
 }

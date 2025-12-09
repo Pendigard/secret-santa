@@ -1,56 +1,83 @@
-// 1. La liste des joueurs (votre "base de données")
-const listeJoueurs = [
-    "Alice",
-    "Alexia",
-    "Bob",
-    "Charlie",
-    "David",
-    "Éloïse",
-    "Félix",
-    "George",
-    "Hélène",
-    "Ingrid",
-    "Jean-Luc"
-    // Ajoutez tous les noms de votre Secret Santa ici
-];
 
-// 2. La fonction d'auto-suggestion
+
 function suggererJoueurs() {
-    // a. Récupérer les éléments HTML
     const input = document.getElementById('searchInput');
     const container = document.getElementById('suggestionsContainer');
     
-    // b. Récupérer la valeur tapée par l'utilisateur, en minuscules pour la comparaison
     const valeurTapee = input.value.toLowerCase();
     
-    // c. Vider le conteneur pour enlever les anciennes suggestions
     container.innerHTML = ''; 
 
-    // Si le champ est vide, ne rien afficher
     if (valeurTapee.length === 0) {
         return;
     }
 
-    // d. Filtrer la liste des joueurs
-    const suggestionsFiltrees = listeJoueurs.filter(joueur => 
-        // Vérifie si le nom du joueur (en minuscules) COMMENCE par ce qui est tapé
+    // listeJoueurs vient désormais de players.map(p => p.username)
+    const suggestionsFiltrees = listeJoueurs.filter(joueur =>
         joueur.toLowerCase().startsWith(valeurTapee)
     );
 
-    // e. Afficher les suggestions filtrées
     suggestionsFiltrees.forEach(joueur => {
-        // Créer un nouvel élément (un div, par exemple) pour chaque suggestion
         const suggestionItem = document.createElement('div');
         suggestionItem.classList.add('suggestion-item');
         suggestionItem.textContent = joueur;
-        
-        // Ajouter un événement de clic pour remplir le champ de saisie si l'utilisateur clique dessus
+
         suggestionItem.onclick = function() {
             input.value = joueur;
-            container.innerHTML = ''; // Cacher les suggestions après le clic
+            container.innerHTML = '';
         };
 
-        // Ajouter l'élément au conteneur de suggestions
         container.appendChild(suggestionItem);
     });
 }
+
+document.getElementById("secretSantaForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("searchInput").value.trim();
+    const errorMessage = document.getElementById("errorMessage");
+
+    errorMessage.style.display = "none";
+    errorMessage.textContent = "";
+
+    if (!username) {
+        errorMessage.textContent = "Veuillez entrer un prénom.";
+        errorMessage.style.display = "block";
+        return;
+    }
+
+    // Chercher le joueur dans la liste
+    const player = players.find(
+        p => p[0].toLowerCase() === username.toLowerCase()
+    );
+
+    if (player) {
+        // Redirection directe : plus besoin d'appeler le serveur
+        window.location.href = `/player/${player[1]}`;
+    } else {
+        errorMessage.textContent = "Ce nom n'existe pas dans la liste des participants.";
+        errorMessage.style.display = "block";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const el = document.getElementById('texte-arcenciel');
+    if (!el) return;
+
+    const text = el.textContent;
+    el.textContent = ''; // On vide
+
+    [...text].forEach((char, index) => {
+        const span = document.createElement('span');
+
+        if (char === " ") {
+            // Préserver les espaces
+            span.innerHTML = "&nbsp;";
+        } else {
+            span.textContent = char;
+        }
+
+        span.style.animationDelay = `${index * 0.1}s`;
+        el.appendChild(span);
+    });
+});

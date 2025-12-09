@@ -6,9 +6,6 @@
     <title>Secret Santa 🎅</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<audio id="background-music" loop>
-    <source src="{{ url_for('static', filename='music/music.m4a') }}" type="audio/mp4">
-</audio>
 
 <body>
     <div class="container">
@@ -20,27 +17,27 @@
     </header>
         <h1>Tirage au Sort Secret Santa</h1>
         
-        <p>Entrez votre prénom et choisissez le participant pour qui vous tirez au sort.</p>
+        <p>Entrez votre prénom et regardez à qui vous devez offrir un cadeau.</p>
         
         <form id="secretSantaForm">
            <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Rechercher un joueur..." onkeyup="suggererJoueurs()">
-    <div id="suggestionsContainer"></div>
-</div>
-
-            
-            
-            <button type="submit" id="tirerAuSortBtn">Voir mon affectation</button>
+            <input type="text" id="searchInput" placeholder="Rechercher un joueur..." onkeyup="suggererJoueurs()">
+            <div id="suggestionsContainer"></div>
+            </div>      
+        <button type="submit" id="affectation">Voir mon affectation</button>
         </form>
-
-        <p id="messageResultat" class="hidden"></p>
+        <p id="errorMessage" style="color: red; font-weight: bold; display: none;"></p>
     </div>
     
+<script>
+    const players = {{ players | tojson }};
+    const listeJoueurs = players.map(p => p[0]);
+</script>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
+<p class="texte-couleur" id="texte-arcenciel">Fais avec ❤️ par Célian</p>
 </body>
 <img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-left">
 <img src="{{ url_for('static', filename='images/dance.gif') }}" class="dance-gif dance-right">
-
 </html>
